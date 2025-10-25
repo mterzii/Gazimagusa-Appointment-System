@@ -1,0 +1,480 @@
+/* -------------------- GENEL -------------------- */
+body {
+  background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+.section-container {
+  background-color: #f7f7f5;
+  border-radius: 20px;
+}
+
+/* -------------------- HEADER ARAMA KUTUSU -------------------- */
+.input-group {
+  border-radius: 50px !important;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.input-group input {
+  border: none !important;
+  padding-left: 18px;
+  font-size: 15px;
+  color: #333;
+  border-radius: 50px 0 0 50px !important;
+}
+
+.input-group input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.input-group .btn {
+  background-color: #ffffff !important;
+  border: none !important;
+  border-radius: 0 50px 50px 0 !important;
+  color: #2b417c;
+  transition: all 0.3s ease;
+  padding-right: 20px;
+}
+
+.input-group .btn:hover {
+  background-color: #f7f7f7 !important;
+  color: #1e2f59;
+}
+
+.input-group .bi-search {
+  font-size: 1.1rem;
+}
+
+/* -------------------- SOL SİDEBAR -------------------- */
+.left-sidebar {
+  background-color: #f7f7f5;
+  padding: 30px 0;
+  border-radius: 25px;
+  height: 100vh;
+  width: 90px;
+  transition: width 0.4s ease;
+  overflow: hidden;
+}
+
+.left-sidebar:hover {
+  width: 230px;
+}
+
+/* Smart Assistant */
+.smart-assistant {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.smart-assistant:hover {
+  background-color: #f2f2f2;
+  transform: scale(1.05);
+}
+
+/* Menü */
+.navigation-menu {
+  background-color: #ffffff;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 15px 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 70px;
+  transition: width 0.4s ease;
+}
+
+.left-sidebar:hover .navigation-menu {
+  width: 200px;
+}
+
+.navigation-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.navigation-menu-item img {
+  width: 26px;
+  height: 26px;
+  transition: transform 0.3s ease;
+}
+
+.navigation-menu-item:hover img {
+  transform: scale(1.1);
+}
+
+.navigation-menu-item .menu-text {
+  font-size: 14px;
+  color: #333;
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.left-sidebar:hover .navigation-menu-item .menu-text,
+.left-sidebar:hover .discover .menu-text {
+  opacity: 1;
+  width: auto;
+  transform: translateX(0);
+}
+
+.navigation-menu-item:hover {
+  background-color: #f2f2f2;
+  transform: scale(1.05);
+}
+
+.navigation-menu-item.currentItem {
+  background-color: #2b2b2b;
+}
+
+.navigation-menu-item.currentItem img {
+  filter: invert(100%);
+}
+
+.navigation-menu-item.currentItem .menu-text {
+  color: #fff;
+}
+
+/* Discover */
+.discover {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #ffffff;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.left-sidebar:hover .discover {
+  width: 200px;
+  border-radius: 40px;
+}
+
+.discover img {
+  width: 32px;
+  height: 32px;
+}
+
+.discover:hover {
+  background-color: #f2f2f2;
+  transform: scale(1.05);
+}
+
+.discover .menu-text {
+  font-size: 14px;
+  color: #333;
+  opacity: 0;
+  width: 0;
+  transition: all 0.3s ease;
+}
+
+/* -------------------- ORTA ANA İÇERİK -------------------- */
+.main-content {
+  background-color: #f7f7f5;
+  padding: 15px 20px;
+  flex: 1;
+  max-width: 100%;
+}
+
+/* SLIDER */
+.carousel-inner img {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 10px 15px;
+}
+
+/* VISITS */
+.Visit {
+  margin-top: 30px;
+  background-color: #f7f7f5;
+}
+
+.VisitTitle h1 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #000;
+}
+
+.VisitDetailBox {
+  background-color: #ffffff;
+  border-radius: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.VisitDetailBox:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.date-score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.date {
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f7f5;
+  text-align: center;
+  padding: 10px 22px;
+  border-radius: 30px;
+  margin-right: 10px;
+}
+
+.score i {
+  color: orange;
+}
+
+/* -------------------- SAĞ PANEL -------------------- */
+.right-sidebar {
+  background-color: #f7f7f5;
+  border-radius: 25px;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.right-sidebar-box {
+  border-radius: 25px;
+  background-color: #fbfbfa;
+  width: 100%;
+  max-width: 320px;
+}
+
+/* Bilgi Kartları */
+.info-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  background-color: #fbfbfa;
+  border-radius: 22px;
+}
+
+.info-cards-item {
+  background-color: #fbfbfa;
+  border-radius: 22px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+.info-cards-item:hover {
+  background-color: #2b417c;
+  color: #fff;
+  transform: scale(1.03);
+}
+
+.info-cards-item img {
+  height: 30px;
+  width: 30px;
+  margin-bottom: 10px;
+}
+
+.info-cards-item h1 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.info-cards-item p {
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+/* TAKVİM KUTUSU */
+.appointment {
+  background-color: #ffffff;
+  border-radius: 22px;
+  padding: 22px;
+  width: 100%;
+  font-weight: 600;
+  font-size: 17px;
+  color: #2b417c;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.appointment:hover {
+  background-color: #2b417c;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* DOKTOR BÖLÜMÜ */
+.FamilyDoctor {
+  background-color: #fbfbfa;
+  border-radius: 22px;
+  padding: 25px;
+}
+
+.DoctorPage {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.DoctorPage h1 {
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.address,
+.doctor,
+.location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.address img,
+.doctor img,
+.location img {
+  height: 27px;
+  width: 27px;
+  cursor: pointer;
+}
+
+/* -------------------- TELEFON (max 768px) -------------------- */
+@media (max-width: 768px) {
+  .section-container .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-sidebar {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 0;
+    background-color: #fff;
+    min-height: auto;
+    height: auto;
+  }
+
+  .navigation-menu {
+    flex-direction: row;
+    background-color: transparent;
+    box-shadow: none;
+    gap: 10px;
+    width: auto;
+    padding: 0;
+  }
+
+  .navigation-menu-item {
+    width: 40px;
+    height: 40px;
+  }
+
+  .navigation-menu-item img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .smart-assistant,
+  .discover {
+    display: none;
+  }
+
+  .main-content,
+  .right-sidebar {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .carousel-inner img {
+    height: 35vh;
+  }
+
+  .VisitDetailBox {
+    height: auto;
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .VisitTitle h1 {
+    font-size: 22px;
+  }
+
+  .FamilyDoctor h1 {
+    font-size: 18px;
+  }
+
+  .address img,
+  .doctor img,
+  .location img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .info-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Slider Sağa Kaydırma */
+.slider-shift {
+  margin-left: 100px;
+  transition: margin 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .slider-shift {
+    margin-left: 0;
+  }
+}
+
+.smart-assistant img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+a {
+  text-decoration: none;
+}

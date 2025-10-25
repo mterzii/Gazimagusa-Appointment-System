@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prescription</title>
+    <link rel="icon" href="../Images/Logo.jpeg" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Prescription.css" />
+  </head>
+
+  <body class="bg-light">
+    <!-- HEADER -->
+    <header class="border-bottom bg-white rounded-bottom-4 shadow-sm py-3">
+      <div class="container d-flex justify-content-between align-items-center">
+        <!-- Logo -->
+        <div class="d-flex align-items-center gap-3">
+          <img
+            src="../Images/Logo.jpeg"
+            alt="Logo"
+            class="rounded-circle border"
+            width="80"
+            height="80"
+          />
+        </div>
+
+        <!-- Search -->
+        <div class="flex-grow-1 mx-4">
+          <div class="input-group rounded-pill shadow-sm">
+            <input
+              type="text"
+              class="form-control border-0 ps-3"
+              placeholder="Hello, how can I help?"
+            />
+            <button class="btn btn-light">
+              <i class="fa-solid fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Options -->
+        <div class="d-flex align-items-center gap-3">
+          <i class="fa-regular fa-bell p-2 rounded-circle bg-light fs-5"></i>
+          <i class="fa-solid fa-language p-2 rounded-circle bg-light fs-5"></i>
+          <i
+            class="fa-solid fa-clipboard-check p-2 rounded-circle bg-light fs-5"
+          ></i>
+          <div class="d-flex align-items-center gap-2 ms-3">
+            <img
+              src="../Images/nullFoto.jpg"
+              class="rounded-circle border"
+              width="40"
+              height="40"
+              alt="User"
+            />
+            <span class="fw-semibold">MERT TERZİ</span>
+            <i class="fa-solid fa-caret-down"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ANA İÇERİK -->
+    <main class="container-fluid py-4">
+      <div class="row gx-4">
+        <!-- SOL SİDEBAR -->
+        <aside
+          class="col-md-2 left-sidebar d-flex flex-column align-items-center"
+        >
+          <div class="smart-assistant mb-4 shadow-sm">
+            <img src="../Images/persondoctor.svg" alt="Doctor" />
+          </div>
+
+          <div class="navigation-menu shadow-sm mb-4">
+            <a href="../Home/Home.html" class="navigation-menu-item">
+              <img src="../Images/home-4-svgrepo-com.svg" alt="HomeIcon" />
+              <span class="menu-text">Home</span>
+            </a>
+            <a href="../Visits/Visit.html" class="navigation-menu-item">
+              <img src="../Images/hospitalcenter.svg" alt="hospitalcenter" />
+              <span class="menu-text">Visits</span>
+            </a>
+
+            <a href="../Diseases/Diseases.html" class="navigation-menu-item">
+              <img src="../Images/heart.svg" alt="heart" />
+              <span class="menu-text">Diseases</span>
+            </a>
+            <div class="navigation-menu-item">
+              <img src="../Images/testtube.svg" alt="testtube" />
+              <span class="menu-text">Tests</span>
+            </div>
+            <a
+              href="../Prescription/Prescription.html"
+              class="navigation-menu-item currentItem"
+            >
+              <img src="../Images/prescription.svg" alt="Prescription" />
+              <span class="menu-text">Prescriptions</span>
+            </a>
+            <div class="navigation-menu-item">
+              <img src="../Images/leg.svg" alt="leg" />
+              <span class="menu-text">Orthopedics</span>
+            </div>
+            <div class="navigation-menu-item">
+              <img src="../Images/radyoloji.svg" alt="radyoloji" />
+              <span class="menu-text">Radiology</span>
+            </div>
+          </div>
+
+          <div class="discover shadow-sm">
+            <img src="../Images/discover.svg" alt="discover" />
+            <span class="menu-text">Discover</span>
+          </div>
+        </aside>
+
+        <!-- ANA CONTENT -->
+        <section class="col-md-10 main-content">
+          <div class="bg-white p-4 rounded-4 shadow-sm">
+            <h2 class="fw-bold mb-4">My Reports</h2>
+
+            <!-- Tarih Aralığı -->
+            <div class="row g-3 mb-4 align-items-end">
+              <div class="col-md-4">
+                <label class="form-label fw-semibold">Start Time</label>
+                <input
+                  type="date"
+                  class="form-control rounded-pill border-1 shadow-sm"
+                />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-semibold">End Time</label>
+                <input
+                  type="date"
+                  class="form-control rounded-pill border-1 shadow-sm"
+                />
+              </div>
+              <div class="col-md-4 d-flex align-items-center">
+                <button class="btn btn-dark w-100 rounded-pill py-2">
+                  <i class="fa-solid fa-magnifying-glass me-2"></i>Search
+                </button>
+              </div>
+            </div>
+
+            <!-- Arama ve Filtre -->
+            <div class="row g-3 mb-4 align-items-center">
+              <div class="col-md-6">
+                <div class="input-group rounded-pill shadow-sm">
+                  <input
+                    type="text"
+                    class="form-control border-0 ps-3"
+                    placeholder="Search"
+                  />
+                  <button class="btn btn-light">
+                    <i class="fa-solid fa-search"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="date"
+                  class="form-control rounded-pill border-1 shadow-sm"
+                />
+              </div>
+            </div>
+
+            <!-- Rapor Tablosu -->
+            <div class="table-responsive">
+              <table class="table table-striped align-middle text-center">
+                <thead class="table-light">
+                  <tr>
+                    <th>Date</th>
+                    <th>Prescription No.</th>
+                    <th>Type of Prescription</th>
+                    <th>Doctor</th>
+                    <th>Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>29.08.2024</td>
+                    <td>1324518011</td>
+                    <td>Normal</td>
+                    <td>ATA</td>
+                    <td>
+                      <button class="btn btn-dark btn-sm rounded-pill">
+                        Show Details
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>29.08.2024</td>
+                    <td>1131485180</td>
+                    <td>Normal</td>
+                    <td>MERT</td>
+                    <td>
+                      <button class="btn btn-dark btn-sm rounded-pill">
+                        Show Details
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>29.08.2024</td>
+                    <td>1312414143</td>
+                    <td>Normal</td>
+                    <td>MERT</td>
+                    <td>
+                      <button class="btn btn-dark btn-sm rounded-pill">
+                        Show Details
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>29.08.2024</td>
+                    <td>1324518011</td>
+                    <td>Normal</td>
+                    <td>ATA</td>
+                    <td>
+                      <button class="btn btn-dark btn-sm rounded-pill">
+                        Show Details
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>29.08.2024</td>
+                    <td>1312414143</td>
+                    <td>Normal</td>
+                    <td>MERT</td>
+                    <td>
+                      <button class="btn btn-dark btn-sm rounded-pill">
+                        Show Details
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

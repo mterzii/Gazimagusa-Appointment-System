@@ -1,0 +1,299 @@
+body {
+  background-color: #f7f7f5;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+/* -------------------- SOL SİDEBAR -------------------- */
+.left-sidebar {
+  background-color: #f8f9fa;
+  padding: 30px 0;
+  border-radius: 25px;
+  height: 100vh;
+  width: 90px;
+  transition: width 0.4s ease;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+}
+
+.left-sidebar:hover {
+  width: 230px;
+}
+
+/* Menü */
+.navigation-menu {
+  background-color: #ffffff;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 20px 10px;
+  width: 70px;
+  transition: width 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.left-sidebar:hover .navigation-menu {
+  width: 200px;
+}
+
+/* Menü Elemanı */
+.navigation-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 12px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+.navigation-menu-item img {
+  width: 26px;
+  height: 26px;
+  transition: all 0.3s ease;
+}
+
+.navigation-menu-item:hover {
+  background-color: #f1f1f1;
+  transform: scale(1.04);
+}
+
+/* Aktif Menü */
+.navigation-menu-item.currentItem {
+  background-color: #000;
+  color: #fff;
+}
+
+.navigation-menu-item.currentItem img {
+  filter: invert(100%);
+}
+
+/* Menü metinleri */
+.menu-text {
+  font-size: 15px;
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.left-sidebar:hover .menu-text {
+  opacity: 1;
+  width: auto;
+  transform: translateX(0);
+}
+
+/* Smart Assistant */
+.smart-assistant {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.smart-assistant:hover {
+  transform: scale(1.05);
+}
+
+.smart-assistant img {
+  width: 35px;
+  height: 35px;
+}
+
+/* Discover */
+.discover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-top: 25px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.left-sidebar:hover .discover {
+  width: 200px;
+  border-radius: 40px;
+  justify-content: flex-start;
+  padding-left: 20px;
+}
+
+.discover img {
+  width: 28px;
+  height: 28px;
+}
+
+.discover .menu-text {
+  opacity: 0;
+  width: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.left-sidebar:hover .discover .menu-text {
+  opacity: 1;
+  width: auto;
+  transform: translateX(0);
+}
+
+.discover:hover {
+  background-color: #f1f1f1;
+  transform: scale(1.04);
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 768px) {
+  .left-sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    border-radius: 0;
+  }
+
+  .navigation-menu {
+    flex-direction: row;
+    background: transparent;
+    box-shadow: none;
+    width: 100%;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .navigation-menu-item {
+    justify-content: center;
+  }
+
+  .menu-text,
+  .discover .menu-text {
+    display: none;
+  }
+
+  .discover {
+    display: none;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* -------------------- VISIT CARD -------------------- */
+.visit-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.visit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Tarih Kutusu */
+.date-box {
+  background: linear-gradient(135deg, #e8f0ff, #f8fbff);
+  border-radius: 15px;
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.date-box small {
+  display: block;
+  font-size: 13px;
+  color: #333;
+}
+
+.date-box h5 {
+  font-size: 24px;
+  color: #000;
+}
+
+/* -------------------- BUTTONLAR -------------------- */
+.btn-outline-modern {
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #f7f7f7;
+}
+
+.btn-outline-modern:nth-child(1) {
+  background-color: #e1efff;
+  color: #1e4cbf;
+}
+
+.btn-outline-modern:nth-child(1):hover {
+  background-color: #c8dcff;
+  transform: translateY(-2px);
+}
+
+.btn-outline-modern:nth-child(2) {
+  background-color: #fff3e0;
+  color: #ff9800;
+}
+
+.btn-outline-modern:nth-child(2):hover {
+  background-color: #ffe0b2;
+  transform: translateY(-2px);
+}
+
+.btn-outline-modern:nth-child(3) {
+  background-color: #f2e6ff;
+  color: #7a3eff;
+}
+
+.btn-outline-modern:nth-child(3):hover {
+  background-color: #e3d2ff;
+  transform: translateY(-2px);
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, #2b417c, #4f6fcf);
+  color: #fff;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(90deg, #4f6fcf, #2b417c);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(43, 65, 124, 0.25);
+}
+
+.main-content {
+  position: relative;
+  top: 20px;
+  left: 100px;
+}
