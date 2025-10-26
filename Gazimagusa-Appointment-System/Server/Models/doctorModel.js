@@ -52,5 +52,13 @@ const doctorSchema = new mongoose.Schema(
   },
   { timestamps: true } //mongodb sütun ekler
 );
-
+// JSON olarak döndürülürken sadece tarihi formatla
+doctorSchema.set("toJSON", {
+  transform: (doc, ret) => {
+    if (ret.DOB) {
+      ret.DOB = ret.DOB.toISOString().split("T")[0]; // sadece tarih kısmı
+    }
+    return ret;
+  },
+});
 module.exports = mongoose.model("doctor-Data", doctorSchema); //"User" mongodb otomatik olarak "users" olarak algılıyo ve o isimde bir koleksiyon oluşturur. "doctor-datas" isimli koleksiyon istediğimiz için ayırdık
