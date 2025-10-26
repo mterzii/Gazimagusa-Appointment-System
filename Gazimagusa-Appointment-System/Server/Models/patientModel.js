@@ -12,15 +12,15 @@ const patientSchema = new mongoose.Schema(
     },
     Email: {
       type: String,
-      required: [true, "Email is required."], //ID no yerine email ile giriş yapılacak
+      required: [true, "Email is required."], // ID no yerine email ile giriş yapılacak
     },
     Password: {
       type: String,
       required: [true, "Password is required."],
     },
-    DOB:{
-        type:Date,
-        required:[true, "Date of Birth is required"]
+    DOB: {
+      type: Date,
+      required: [true, "Date of Birth is required."],
     },
     Address: {
       type: Array,
@@ -32,7 +32,7 @@ const patientSchema = new mongoose.Schema(
     },
     userType: {
       type: String,
-      required: [true, " User type is required."], //! olmalı mı?????????????????????????????????
+      required: [true, "User type is required."],
       default: "Patient",
       enum: ["Patient", "Doctor", "Admin"],
     },
@@ -46,7 +46,17 @@ const patientSchema = new mongoose.Schema(
       required: [true, "Authentication answer is required."],
     },
   },
-  { timestamps: true } //mongodb sütun ekler
+  { timestamps: true }
 );
 
-module.exports = mongoose.model("patient-Data", patientSchema); //"User" mongodb otomatik olarak "users" olarak algılıyo ve o isimde bir koleksiyon oluşturur. "patient-datas" isimli koleksiyon istediğimiz için ayırdık
+// JSON olarak döndürülürken sadece tarihi formatla
+patientSchema.set("toJSON", {
+  transform: (doc, ret) => {
+    if (ret.DOB) {
+      ret.DOB = ret.DOB.toISOString().split("T")[0]; // sadece tarih kısmı
+    }
+    return ret;
+  },
+});
+
+module.exports = mongoose.model("patient-Data", patientSchema);

@@ -10,9 +10,9 @@ router.post("/register/doctor", registerDoctorController);
 router.post("/register/admin", registerAdminController);
 
 //LOGIN
-router.post("/login/patient",loginPatientController);
-router.post("/login/doctor",loginDoctorController);
-router.post("/login/admin",loginAdminController);
+router.post("/login/patient", loginPatientController);
+router.post("/login/doctor", loginDoctorController);
+router.post("/login/admin", loginAdminController);
 
 
 //DELETE USER
