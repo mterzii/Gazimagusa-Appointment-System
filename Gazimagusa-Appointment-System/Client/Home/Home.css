@@ -478,3 +478,50 @@ body {
 a {
   text-decoration: none;
 }
+
+/* Randevu Kısmı*/
+/* Book Appointment - spans two columns */
+.book-appointment-card {
+  grid-column: 1 / span 2; /* 2 kutuluk alanı kaplasın */
+  background-color: #ffffff; /* diğer butonlarla aynı zemin */
+  border-radius: 22px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+  padding: 30px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+.book-appointment-card i {
+  font-size: 2rem;
+  color: rgb(65, 146, 228); /* mavi ikon */
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+.book-appointment-card h1 {
+  color: rgb(65, 146, 228);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.book-appointment-card p {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 0;
+  transition: color 0.3s ease;
+}
+
+.book-appointment-card:hover {
+  background-color: rgb(65, 146, 228);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(65, 146, 228, 0.3);
+}
+
+.book-appointment-card:hover i,
+.book-appointment-card:hover h1,
+.book-appointment-card:hover p {
+  color: #fff;
+}
