@@ -10,7 +10,7 @@
     />
     <link rel="stylesheet" href="Register.css" />
   </head>
-
+<script src="Register.js" defer></script>
   <body>
     <div class="form-container">
       <!-- Logo + Başlık -->
@@ -29,15 +29,15 @@
         <div class="row mb-3">
           <div class="col-md-4">
             <label class="form-label">First Name</label>
-            <input type="text" class="form-control" />
+            <input type="text" class="form-control" id="firstName" />
           </div>
           <div class="col-md-4">
             <label class="form-label">Last Name</label>
-            <input type="text" class="form-control" />
+            <input type="text" class="form-control" id="lastName" />
           </div>
           <div class="col-md-4">
             <label class="form-label">Sex</label>
-            <select class="form-select">
+            <select class="form-select" id="sex">
               <option>Please Select</option>
               <option>Male</option>
               <option>Female</option>
@@ -50,13 +50,14 @@
         <div class="row mb-3">
           <div class="col-md-4">
             <label class="form-label">Date of Birth</label>
-            <input type="date" class="form-control" />
+            <input type="date" class="form-control" id="dob"/>
           </div>
           <div class="col-md-4">
             <label class="form-label">Phone Number</label>
             <input
               type="tel"
               class="form-control"
+              id="phone"
               placeholder="(000) 000-0000"
             />
           </div>
@@ -65,6 +66,7 @@
             <input
               type="email"
               class="form-control"
+              id="email"
               placeholder="example@example.com"
             />
           </div>
@@ -76,6 +78,7 @@
           <input
             type="password"
             class="form-control mb-2"
+            id="password"
             placeholder="Enter Password"
           />
         </div>
@@ -86,21 +89,24 @@
           <input
             type="text"
             class="form-control mb-2"
+            id="street1"
             placeholder="Street Address"
           />
           <input
             type="text"
             class="form-control mb-2"
+            id="street2"
             placeholder="Street Address Line 2"
           />
           <div class="row">
             <div class="col-md-4 mb-2">
-              <input type="text" class="form-control" placeholder="City" />
+              <input type="text" class="form-control" placeholder="City" id="city"/>
             </div>
             <div class="col-md-4 mb-2">
               <input
                 type="text"
                 class="form-control"
+                id="state"
                 placeholder="State / Province"
               />
             </div>
@@ -108,6 +114,7 @@
               <input
                 type="text"
                 class="form-control"
+                id="zip"
                 placeholder="Postal / Zip Code"
               />
             </div>
@@ -118,7 +125,7 @@
         <div class="row mb-3">
           <div class="col-md-4">
             <label class="form-label">Marital Status</label>
-            <select class="form-select">
+            <select class="form-select" id="maritalStatus">
               <option>Please Select</option>
               <option>Single</option>
               <option>Married</option>
@@ -179,31 +186,31 @@
         <div class="row mb-3">
           <div class="col-md-4">
             <label class="form-label">First Name</label>
-            <input type="text" class="form-control" />
+            <input type="text" class="form-control" id="emergencyFirstName"/>
           </div>
           <div class="col-md-4">
             <label class="form-label">Last Name</label>
-            <input type="text" class="form-control" />
+            <input type="text" class="form-control" id="emergencyLastName"/>
           </div>
           <div class="col-md-4">
             <label class="form-label">Relationship</label>
-            <input type="text" class="form-control" />
+            <input type="text" class="form-control" id="emergencyRelationship"/>
           </div>
         </div>
         <div class="mb-3">
           <label class="form-label">Contact Number</label>
-          <input type="tel" class="form-control" placeholder="(000) 000-0000" />
+          <input type="tel" class="form-control" id="emergencyPhone" placeholder="(000) 000-0000" />
         </div>
 
         <!-- Health History -->
         <div class="section-title">Health History</div>
         <div class="mb-3">
           <label class="form-label">Reason for Registration</label>
-          <input type="text" class="form-control" />
+          <input type="text" class="form-control" id="reason" />
         </div>
         <div class="mb-3">
           <label class="form-label">Additional Notes</label>
-          <textarea class="form-control" rows="3"></textarea>
+          <textarea class="form-control" rows="3" id="notes"></textarea>
         </div>
         <div class="mb-3">
           <label class="form-label">Taking any medications currently?</label
@@ -229,7 +236,7 @@
         </div>
         <div class="mb-3">
           <label class="form-label">Please list them here</label>
-          <textarea class="form-control" rows="3"></textarea>
+          <textarea class="form-control" rows="3" id="medsList"></textarea>
         </div>
 
         <!-- Insurance -->
