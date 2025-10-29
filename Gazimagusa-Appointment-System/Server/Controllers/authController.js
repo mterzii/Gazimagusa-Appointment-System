@@ -66,37 +66,67 @@ const generateToken = (user, role) => {
 //! REG PATIENT CONTROLLER
 const registerPatientController = async (req, res) => {
   try {
-    if (validateFieldsPatient(req.body)) {
-      return res.status(500).send({
+    // 1. Gelen tüm verileri request body'sinden al
+    const {
+      Name,
+      Surname,
+      Email,
+      Password,
+      DOB,
+      Phone,
+      Sex,
+      Address, // Bu artık bir obje olarak gelecek: { street1, city, ... }
+      MaritalStatus,
+      EmergencyContact, // Bu da bir obje
+      HealthHistory, // Bu da bir obje
+    } = req.body;
+
+    // 2. Temel alanların kontrolü
+    if (!Name || !Surname || !Email || !Password || !DOB || !Phone) {
+      return res.status(400).send({ // 400 Bad Request daha uygun
         success: false,
-        message: "Please Provide All Fields.",
+        message: "Please provide all required fields (Name, Surname, Email, Password, DOB, Phone).",
       });
     }
-    //CHECK USER
-    const existing = await patientModel.findOne({ Email: req.body.Email });
+
+    // 3. Kullanıcı zaten var mı diye kontrol et
+    const existing = await patientModel.findOne({ Email: Email });
     if (existing) {
-      return res.status(500).send({
+      return res.status(409).send({ // 409 Conflict daha uygun
         success: false,
-        message: "Email is Alredy Registered, Please Try Log In.",
+        message: "Email is already registered. Please try logging in.",
       });
     }
 
-    //hashing password
-    const hashedPassword = await bcrypt.hash(
-      req.body.Password,
-      bcrypt.genSaltSync(10)
-    );
+    // 4. Şifreyi hash'le
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(Password, salt);
 
-    //Create New User
-    const newPatient = await patientModel.create({
-      ...req.body,
+    // 5. Yeni hasta verisini oluştur
+    const newPatient = new patientModel({
+      Name,
+      Surname,
+      Email,
       Password: hashedPassword,
+      DOB,
+      Phone,
+      Sex,
+      Address, // Frontend'den gelen obje doğrudan atanır
+      MaritalStatus,
+      EmergencyContact, // Frontend'den gelen obje doğrudan atanır
+      HealthHistory, // Frontend'den gelen obje doğrudan atanır
+      authAnswer: "default_answer", // Formda bu alan olmadığı için geçici bir değer atıyoruz.
     });
+
+    // 6. Veritabanına kaydet
+    await newPatient.save();
+
     res.status(201).send({
       success: true,
-      message: "Succesfully Registered.",
-      newPatient,
+      message: "Successfully Registered.",
+      patient: newPatient, // newPatient'ı geri döndürelim
     });
+
   } catch (error) {
     console.log(error);
     res.status(500).send({

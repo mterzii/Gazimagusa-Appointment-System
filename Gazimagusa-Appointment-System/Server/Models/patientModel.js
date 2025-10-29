@@ -1,38 +1,65 @@
+// server/Models/patientModel.js
+
 const mongoose = require("mongoose");
 
 const patientSchema = new mongoose.Schema(
   {
     Name: {
       type: String,
-      required: [true, "Name is required."],
+      required: [true, "First name is required."],
     },
     Surname: {
       type: String,
-      required: [true, "Surname is required."],
+      required: [true, "Last name is required."],
     },
     Email: {
       type: String,
-      required: [true, "Email is required."], // ID no yerine email ile giriş yapılacak
+      required: [true, "Email is required."],
+      unique: true, // Her email benzersiz olmalı
     },
     Password: {
       type: String,
       required: [true, "Password is required."],
     },
-    DOB: {
+    DOB: { // Date of Birth
       type: Date,
       required: [true, "Date of Birth is required."],
     },
-    Address: {
-      type: Array,
-      required: [true, "Address is required."],
-    },
     Phone: {
-      type: Number,
+      type: String, // String olarak saklamak daha esnek (örn: +90 ...)
       required: [true, "Phone number is required."],
     },
+    Sex: {
+      type: String,
+      enum: ["Male", "Female", "Other"],
+    },
+    Address: {
+      street1: String,
+      street2: String,
+      city: String,
+      state: String,
+      zip: String,
+    },
+    MaritalStatus: {
+      type: String,
+      enum: ["Single", "Married", "Divorced", "Widowed"],
+    },
+    // Acil durum ve diğer bilgiler opsiyonel olabilir, bu yüzden 'required' değil.
+    EmergencyContact: {
+      firstName: String,
+      lastName: String,
+      relationship: String,
+      phone: String,
+    },
+    HealthHistory: {
+      reasonForRegistration: String,
+      additionalNotes: String,
+      isTakingMeds: Boolean,
+      medsList: String,
+    },
+    // Varsayılan ve değişmez alanlar
     userType: {
       type: String,
-      required: [true, "User type is required."],
       default: "Patient",
       enum: ["Patient", "Doctor", "Admin"],
     },
@@ -41,6 +68,7 @@ const patientSchema = new mongoose.Schema(
       default:
         "https://static.vecteezy.com/system/resources/previews/019/879/186/non_2x/user-icon-on-transparent-background-free-png.png",
     },
+    // authAnswer alanı formda yok ama backend'de zorunlu. Şimdilik geçici bir değer atayacağız.
     authAnswer: {
       type: String,
       required: [true, "Authentication answer is required."],
@@ -48,15 +76,5 @@ const patientSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
-// JSON olarak döndürülürken sadece tarihi formatla
-patientSchema.set("toJSON", {
-  transform: (doc, ret) => {
-    if (ret.DOB) {
-      ret.DOB = ret.DOB.toISOString().split("T")[0]; // sadece tarih kısmı
-    }
-    return ret;
-  },
-});
 
 module.exports = mongoose.model("patient-Data", patientSchema);
