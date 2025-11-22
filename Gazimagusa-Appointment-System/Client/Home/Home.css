@@ -478,9 +478,78 @@ body {
 a {
   text-decoration: none;
 }
+/*Kullanıcı Girişi Dropdown kısmı*/
+.dropdown-menu {
+  min-width: 220px;
+  border-radius: 8px;
+}
+
+.dropdown-header {
+  font-size: 0.85rem;
+}
+
+.dropdown-header + .dropdown-divider {
+  margin-top: 0.25rem;
+}
+/*Settings Modal kısmı*/
+/* Genel modal görünümü */
+.settings-modal .modal-content {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.15);
+}
+
+.settings-modal .modal-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.settings-modal .modal-body {
+  padding: 1.25rem 1.5rem 1rem;
+}
+
+.settings-modal .modal-footer {
+  border-top: none;
+  padding: 0.75rem 1.5rem 1.25rem;
+}
+
+/* Satırlar */
+.setting-item {
+  border-top: 1px solid #e5e7eb;
+}
+
+.setting-item:first-of-type {
+  border-top: 1px solid #e5e7eb; /* üstte de ince çizgi olsun istiyorsan bırak */
+}
+
+/* İkon kısmı */
+.setting-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e5f0ff; /* sağdaki gibi hafif mavi arka plan */
+}
+
+.setting-icon i {
+  font-size: 1.25rem;
+}
+
+/* Sağdaki “Contact us / Security” linkleri */
+.setting-link {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.setting-link:hover {
+  color: #111827;
+  cursor: pointer;
+}
 
 /* Randevu Kısmı*/
-/* Book Appointment - spans two columns */
+.info-cards-wide,
 .book-appointment-card {
   grid-column: 1 / span 2; /* 2 kutuluk alanı kaplasın */
   background-color: #ffffff; /* diğer butonlarla aynı zemin */
@@ -524,4 +593,25 @@ a {
 .book-appointment-card:hover h1,
 .book-appointment-card:hover p {
   color: #fff;
+}
+/* Forgot Password Modal */
+.forgot-modal {
+  border-radius: 14px;
+  border: none;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+}
+
+.forgot-modal .modal-header {
+  border-bottom: none;
+  padding: 1rem 1.5rem 0.25rem;
+}
+
+.forgot-modal .modal-body {
+  padding: 0.5rem 1.5rem 1.5rem;
+}
+
+.forgot-modal .btn-primary {
+  height: 44px;
+  border-radius: 8px;
+  font-weight: 500;
 }

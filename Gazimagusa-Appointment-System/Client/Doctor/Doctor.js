@@ -1,4 +1,4 @@
-// Sidebar Toggle for Mobile Responsive icin
+// Sidebar Toggle for Mobile Responsive
 document.addEventListener('DOMContentLoaded', function () {
     const sidebarCollapse = document.getElementById('sidebarCollapse');
     const sidebar = document.getElementById('sidebar');
@@ -22,21 +22,20 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize Chart
     initializeChart();
 
-    // Add smooth scrolling for anchor links
+    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
+            if (!target) return;
+            e.preventDefault();
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     });
 });
 
-// Chart Grafiği
+// Chart
 function initializeChart() {
     const ctx = document.getElementById('patientChart');
     if (!ctx) return;
@@ -51,7 +50,7 @@ function initializeChart() {
             labels: months,
             datasets: [
                 {
-                    label: 'Toplam Hasta',
+                    label: 'Total Patients',
                     data: data1,
                     borderColor: '#4a90e2',
                     backgroundColor: 'rgba(74, 144, 226, 0.1)',
@@ -62,7 +61,7 @@ function initializeChart() {
                     borderWidth: 3
                 },
                 {
-                    label: 'Yeni Hasta',
+                    label: 'New Patients',
                     data: data2,
                     borderColor: '#95a5a6',
                     backgroundColor: 'rgba(149, 165, 166, 0.1)',
@@ -133,7 +132,7 @@ function initializeChart() {
     });
 }
 
-// Simulate real-time updates (optional feature)
+// Real-time stats demo (optional)
 function updateStats() {
     const statCards = document.querySelectorAll('.stat-content h3');
     statCards.forEach(card => {
@@ -144,10 +143,7 @@ function updateStats() {
     });
 }
 
-// Update stats every 30 seconds (optional)
-// setInterval(updateStats, 30000);
-
-// Add animation on scroll
+// Scroll animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -162,10 +158,57 @@ const observer = new IntersectionObserver(function (entries) {
     });
 }, observerOptions);
 
-// Observe all cards
 document.querySelectorAll('.stat-card, .quick-card, .card').forEach(card => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(20px)';
     card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     observer.observe(card);
 });
+
+/* Patient Modal */
+const patientModal = document.getElementById('patientDetailsModal');
+
+if (patientModal) {
+    patientModal.addEventListener('show.bs.modal', function (event) {
+        const button = event.relatedTarget;
+        if (!button) return;
+
+        document.getElementById('modalPatientName').textContent = button.dataset.name || '-';
+        document.getElementById('modalComplaint').textContent = button.dataset.complaint || '-';
+        document.getElementById('modalAppointmentTime').textContent = button.dataset.time || '-';
+        document.getElementById('modalDiagnosis').textContent = button.dataset.diagnosis || '-';
+        document.getElementById('modalMedication').textContent = button.dataset.medication || '-';
+        document.getElementById('modalNotes').textContent = button.dataset.notes || '-';
+    });
+}
+
+/* Forgot Password flow (Settings -> Forgot Password modal) */
+const forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
+const settingsModalEl = document.getElementById('settingsModal');
+const forgotPasswordModalEl = document.getElementById('forgotPasswordModal');
+
+if (forgotPasswordBtn && settingsModalEl && forgotPasswordModalEl) {
+    const settingsModal = bootstrap.Modal.getOrCreateInstance(settingsModalEl);
+    const forgotPasswordModal = new bootstrap.Modal(forgotPasswordModalEl);
+
+    forgotPasswordBtn.addEventListener('click', () => {
+        settingsModal.hide();
+        forgotPasswordModal.show();
+    });
+}
+
+/*Navbar Geçişleri */
+
+document.querySelectorAll(".sidebar-menu li a").forEach(link => {
+    link.addEventListener("click", function () {
+
+        // Tüm active sınıflarını temizle
+        document.querySelectorAll(".sidebar-menu li").forEach(li => {
+            li.classList.remove("active");
+        });
+
+        // Tıklanan link'in parent LI'sine active ata
+        this.parentElement.classList.add("active");
+    });
+});
+

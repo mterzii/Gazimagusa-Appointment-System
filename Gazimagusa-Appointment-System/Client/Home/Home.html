@@ -32,12 +32,14 @@
         <div class="row align-items-center justify-content-between g-3">
           <!-- Logo -->
           <div class="col-12 col-md-auto text-center text-md-start">
-            <img
-              src="../Images/Logo.jpeg"
-              alt="Header Logo"
-              class="rounded-circle border"
-              style="width: 80px; height: 80px"
-            />
+            <a href="../Home/Home.html">
+              <img
+                src="../Images/Logo.jpeg"
+                alt="Header Logo"
+                class="rounded-circle border"
+                style="width: 80px; height: 80px; cursor: pointer"
+              />
+            </a>
           </div>
 
           <!-- Search + Options + User -->
@@ -67,10 +69,53 @@
             </div>
 
             <!-- User -->
-            <div class="d-flex align-items-center gap-2 ms-md-3">
-              <i class="bi bi-person-circle fs-4"></i>
-              <span class="fw-semibold">MERT TERZİ</span>
-              <i class="bi bi-caret-down-fill"></i>
+            <!-- NAVBAR SAĞ TARAF KULLANICI DROPDOWN -->
+            <div class="dropdown ms-md-3">
+              <button
+                class="btn d-flex align-items-center gap-2 text-decoration-none"
+                type="button"
+                id="userMenu"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-person-circle fs-4"></i>
+                <span class="fw-semibold">MERT TERZİ</span>
+                <i class="bi bi-caret-down-fill"></i>
+              </button>
+
+              <ul
+                class="dropdown-menu dropdown-menu-end shadow"
+                aria-labelledby="userMenu"
+              >
+                <li class="dropdown-header">
+                  <div class="fw-semibold">MERT TERZİ</div>
+                  <small class="text-muted">User</small>
+                </li>
+
+                <li><hr class="dropdown-divider" /></li>
+
+                <li class="dropdown-header">Account</li>
+
+                <li>
+                  <button
+                    class="dropdown-item"
+                    data-bs-toggle="modal"
+                    data-bs-target="#userProfileModal"
+                  >
+                    <i class="bi bi-person me-2"></i> Profile
+                  </button>
+                </li>
+
+                <li>
+                  <button
+                    class="dropdown-item"
+                    data-bs-toggle="modal"
+                    data-bs-target="#userSettingsModal"
+                  >
+                    <i class="bi bi-gear me-2"></i> Settings
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -82,10 +127,6 @@
       <div class="row gx-4">
         <!-- SOL SİDEBAR -->
         <div class="col-2 left-sidebar d-flex flex-column align-items-center">
-          <div class="smart-assistant mb-4 shadow-sm">
-            <img src="../Images/persondoctor.svg" alt="Doctor" />
-          </div>
-
           <div class="navigation-menu shadow-sm mb-4">
             <a
               href="../Home/Home.html"
@@ -103,22 +144,11 @@
               <img src="../Images/heart.svg" alt="heart" />
               <span class="menu-text">Diseases</span>
             </a>
-            <div class="navigation-menu-item">
+
+            <a href="../Tests/Tests.html" class="navigation-menu-item">
               <img src="../Images/testtube.svg" alt="testtube" />
               <span class="menu-text">Tests</span>
-            </div>
-            <a
-              href="../Prescription/Prescription.html"
-              class="navigation-menu-item"
-            >
-              <img src="../Images/prescription.svg" alt="Prescription" />
-              <span class="menu-text">Prescriptions</span>
             </a>
-          </div>
-
-          <div class="discover shadow-sm">
-            <img src="../Images/discover.svg" alt="discover" />
-            <span class="menu-text">Discover</span>
           </div>
         </div>
 
@@ -132,25 +162,33 @@
             <div class="carousel-inner rounded-4 shadow-sm">
               <div class="carousel-item active">
                 <img
-                  src="https://images.pexels.com/photos/19492985/pexels-photo-19492985.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  src="../Images/slider1.jpg"
                   class="d-block w-100 rounded-4"
                   alt="Slider Image 1"
                 />
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>First slide label</h5>
-                  <p>Some representative placeholder content.</p>
-                </div>
               </div>
               <div class="carousel-item">
                 <img
-                  src="../Images/pexels-snapwire-34950.jpg"
+                  src="../Images/slider3.jpg"
                   class="d-block w-100 rounded-4"
                   alt="Slider Image 2"
                 />
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Second slide label</h5>
-                  <p>Some representative placeholder content.</p>
-                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img
+                  src="../Images/slider2.jpg"
+                  class="d-block w-100 rounded-4"
+                  alt="Slider Image 2"
+                />
+              </div>
+
+              <div class="carousel-item">
+                <img
+                  src="../Images/slider4.jpg"
+                  class="d-block w-100 rounded-4"
+                  alt="Slider Image 2"
+                />
               </div>
             </div>
             <button
@@ -236,16 +274,10 @@
           class="col-3 right-sidebar d-flex flex-column align-items-center gap-4"
         >
           <div class="info-cards right-sidebar-box p-3 shadow-sm">
-            <div class="info-cards-item">
+            <div class="info-cards-item info-cards-wide">
               <img src="../Images/megaphone.svg" alt="News" />
               <h1>News From Us</h1>
               <p>They will be called in Case of Emergency</p>
-            </div>
-
-            <div class="info-cards-item">
-              <img src="../Images/settings.svg" alt="Settings" />
-              <h1>Options</h1>
-              <p>Review the Security Settings</p>
             </div>
 
             <!-- WIDE BOOK APPOINTMENT CARD -->
@@ -289,6 +321,175 @@
         </div>
       </div>
     </section>
+
+    <!--User Profile Modal-->
+    <div
+      class="modal fade"
+      id="userProfileModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">User Profile</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="d-flex align-items-center mb-3">
+              <div
+                class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3"
+                style="width: 48px; height: 48px"
+              >
+                <span class="fw-semibold">MT</span>
+              </div>
+              <div>
+                <div class="fw-semibold">Mert Terzi</div>
+                <small class="text-muted">Standard User</small>
+              </div>
+            </div>
+
+            <div class="mb-2"><strong>User ID:</strong>0001</div>
+            <div class="mb-2">
+              <strong>Email:</strong> mert.terzi@example.com
+            </div>
+            <div class="mb-2"><strong>Phone:</strong> +90 555 123 45 67</div>
+            <div class="mb-2"><strong>Registered:</strong>01/05/2023</div>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-outline-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+            <button class="btn btn-primary">Edit Profile</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--User Settings Modal-->
+    <div
+      class="modal fade settings-modal"
+      id="userSettingsModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Settings</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <p class="text-muted mb-3">
+              Manage your account preferences and security settings.
+            </p>
+
+            <!-- Email Support -->
+            <div
+              class="setting-item d-flex align-items-center justify-content-between py-3"
+            >
+              <div class="d-flex align-items-center">
+                <div class="setting-icon me-3">
+                  <i class="bi bi-envelope"></i>
+                </div>
+                <div>
+                  <div class="fw-semibold">Email Support</div>
+                  <small class="text-muted">
+                    If you have any issues or feedback, contact us by email.
+                  </small>
+                </div>
+              </div>
+              <small class="setting-link">Contact us</small>
+            </div>
+
+            <!-- Forgot Password -->
+            <div
+              id="forgotPasswordItem"
+              class="setting-item d-flex align-items-center justify-content-between py-3"
+              style="cursor: pointer"
+            >
+              <div class="d-flex align-items-center">
+                <div class="setting-icon me-3">
+                  <i class="bi bi-shield-lock"></i>
+                </div>
+                <div>
+                  <div class="fw-semibold">Forgot Password</div>
+                  <small class="text-muted">
+                    A reset link will be sent to your registered email.
+                  </small>
+                </div>
+              </div>
+              <small class="setting-link">Security</small>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div
+      class="modal fade"
+      id="forgotPasswordModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content forgot-modal">
+          <div class="modal-header">
+            <h5 class="modal-title">Forgot Password</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <p class="text-muted">
+              Enter your email address and we will send you a password reset
+              link.
+            </p>
+
+            <div class="mb-3">
+              <label for="resetEmail" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="resetEmail"
+                placeholder="name@example.com"
+              />
+            </div>
+
+            <button type="button" class="btn btn-primary w-100">
+              Send Reset Link
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="Home.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
