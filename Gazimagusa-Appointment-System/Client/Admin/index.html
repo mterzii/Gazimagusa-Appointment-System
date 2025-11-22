@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Magusa - Hospital Admin Panel</title>
+    <link rel="icon" href="../Images/Logo.svg" />
 
     <!-- Bootstrap CSS -->
     <link
@@ -25,10 +26,9 @@
     <div class="sidebar">
       <!-- Logo section -->
       <div class="logo-container">
-        <div class="logo-icon">
-          <i class="bi bi-heart-pulse-fill"></i>
+        <div class="logo-circle">
+          <img src="../Images/Logo.jpeg" alt="Logo" class="logo-img" />
         </div>
-        <h1 class="logo-text">Magusa</h1>
       </div>
 
       <!-- Main menu section -->
@@ -124,34 +124,49 @@
             </button>
 
             <!-- User profile dropdown -->
-            <div class="dropdown">
-              <button class="user-profile" data-bs-toggle="dropdown">
-                <img
-                  src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=100"
-                  alt="Admin"
-                  class="user-avatar"
-                />
-                <div class="user-info">
-                  <p class="user-name">Jack Chain</p>
-                  <p class="user-role">Super Admin</p>
+            <div class="dropdown user-dropdown">
+              <button
+                class="btn user-profile dropdown-toggle"
+                type="button"
+                id="adminDropdownMenu"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div class="user-text">
+                  <span class="user-name">Jack Chain</span>
+                  <small class="user-role">Super Admin</small>
                 </div>
               </button>
-              <ul class="dropdown-menu dropdown-menu-end">
+
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="adminDropdownMenu"
+              >
                 <li>
-                  <a class="dropdown-item" href="#"
-                    ><i class="bi bi-person me-2"></i>Profile</a
+                  <button
+                    type="button"
+                    class="dropdown-item"
+                    data-bs-toggle="modal"
+                    data-bs-target="#adminProfileModal"
                   >
+                    <i class="bi bi-person me-2"></i>Profile
+                  </button>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"
-                    ><i class="bi bi-gear me-2"></i>Settings</a
+                  <button
+                    type="button"
+                    class="dropdown-item"
+                    data-bs-toggle="modal"
+                    data-bs-target="#adminSettingsModal"
                   >
+                    <i class="bi bi-gear me-2"></i>Settings
+                  </button>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="#"
-                    ><i class="bi bi-box-arrow-right me-2"></i>Logout</a
-                  >
+                  <a class="dropdown-item" href="#">
+                    <i class="bi bi-box-arrow-right me-2"></i>Logout
+                  </a>
                 </li>
               </ul>
             </div>
@@ -481,9 +496,6 @@
                         <div>
                           <h6 class="mb-1 fw-semibold">Dr. Sarah Johnson</h6>
                           <small class="text-muted">Cardiology</small>
-                          <div class="mt-1">
-                            <small class="rating">★ 4.9</small>
-                          </div>
                         </div>
                       </div>
                       <div class="text-end">
@@ -505,9 +517,6 @@
                         <div>
                           <h6 class="mb-1 fw-semibold">Dr. Michael Brown</h6>
                           <small class="text-muted">Internal Medicine</small>
-                          <div class="mt-1">
-                            <small class="rating">★ 4.8</small>
-                          </div>
                         </div>
                       </div>
                       <div class="text-end">
@@ -529,9 +538,6 @@
                         <div>
                           <h6 class="mb-1 fw-semibold">Dr. Emily Davis</h6>
                           <small class="text-muted">Neurology</small>
-                          <div class="mt-1">
-                            <small class="rating">★ 4.7</small>
-                          </div>
                         </div>
                       </div>
                       <div class="text-end">
@@ -553,9 +559,6 @@
                         <div>
                           <h6 class="mb-1 fw-semibold">Dr. James Wilson</h6>
                           <small class="text-muted">Orthopedics</small>
-                          <div class="mt-1">
-                            <small class="rating">★ 4.9</small>
-                          </div>
                         </div>
                       </div>
                       <div class="text-end">
@@ -787,16 +790,10 @@
                   </div>
                 </div>
                 <div class="row g-3 mb-3">
-                  <div class="col-6">
+                  <div class="col-12">
                     <div class="bg-light rounded p-2 text-center">
                       <div class="fw-bold">245</div>
                       <small class="text-muted">Patients</small>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="bg-light rounded p-2 text-center">
-                      <div class="fw-bold rating">★ 4.9</div>
-                      <small class="text-muted">Rating</small>
                     </div>
                   </div>
                 </div>
@@ -866,12 +863,6 @@
                       <small class="text-muted">Patients</small>
                     </div>
                   </div>
-                  <div class="col-6">
-                    <div class="bg-light rounded p-2 text-center">
-                      <div class="fw-bold rating">★ 4.8</div>
-                      <small class="text-muted">Rating</small>
-                    </div>
-                  </div>
                 </div>
                 <div class="d-flex gap-2">
                   <button class="btn btn-sm btn-outline-primary flex-fill">
@@ -933,16 +924,10 @@
                   </div>
                 </div>
                 <div class="row g-3 mb-3">
-                  <div class="col-6">
+                  <div class="col-12">
                     <div class="bg-light rounded p-2 text-center">
                       <div class="fw-bold">176</div>
                       <small class="text-muted">Patients</small>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="bg-light rounded p-2 text-center">
-                      <div class="fw-bold rating">★ 4.7</div>
-                      <small class="text-muted">Rating</small>
                     </div>
                   </div>
                 </div>
@@ -1006,16 +991,10 @@
                   </div>
                 </div>
                 <div class="row g-3 mb-3">
-                  <div class="col-6">
+                  <div class="col-12">
                     <div class="bg-light rounded p-2 text-center">
                       <div class="fw-bold">165</div>
                       <small class="text-muted">Patients</small>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="bg-light rounded p-2 text-center">
-                      <div class="fw-bold rating">★ 4.9</div>
-                      <small class="text-muted">Rating</small>
                     </div>
                   </div>
                 </div>
@@ -1079,16 +1058,10 @@
                   </div>
                 </div>
                 <div class="row g-3 mb-3">
-                  <div class="col-6">
+                  <div class="col-12">
                     <div class="bg-light rounded p-2 text-center">
                       <div class="fw-bold">203</div>
                       <small class="text-muted">Patients</small>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="bg-light rounded p-2 text-center">
-                      <div class="fw-bold rating">★ 4.8</div>
-                      <small class="text-muted">Rating</small>
                     </div>
                   </div>
                 </div>
@@ -1152,16 +1125,10 @@
                   </div>
                 </div>
                 <div class="row g-3 mb-3">
-                  <div class="col-6">
+                  <div class="col-12">
                     <div class="bg-light rounded p-2 text-center">
                       <div class="fw-bold">142</div>
                       <small class="text-muted">Patients</small>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="bg-light rounded p-2 text-center">
-                      <div class="fw-bold rating">★ 4.6</div>
-                      <small class="text-muted">Rating</small>
                     </div>
                   </div>
                 </div>
@@ -1742,6 +1709,207 @@
           </div>
         </div>
       </main>
+    </div>
+
+    <!-- Admin Profile Modal -->
+    <div
+      class="modal fade"
+      id="adminProfileModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Admin Profile</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="d-flex align-items-center mb-3">
+              <div
+                class="rounded-circle d-flex align-items-center justify-content-center me-3"
+                style="
+                  width: 56px;
+                  height: 56px;
+                  background-color: #0d6efd;
+                  color: white;
+                  font-weight: 600;
+                "
+              >
+                JC
+              </div>
+              <div>
+                <h6 class="mb-1">Jack Chain</h6>
+                <small class="text-muted">Super Admin</small>
+              </div>
+            </div>
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item px-0">
+                <strong>User ID:</strong> ADM-1001
+              </li>
+              <li class="list-group-item px-0">
+                <strong>Email:</strong> jack.chain@example.com
+              </li>
+              <li class="list-group-item px-0">
+                <strong>Phone:</strong> +1 (555) 123 45 67
+              </li>
+              <li class="list-group-item px-0">
+                <strong>Role:</strong> Super Admin
+              </li>
+              <li class="list-group-item px-0">
+                <strong>Last Login:</strong> 12 Dec 2025, 14:32
+              </li>
+            </ul>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-outline-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+            <button class="btn btn-primary">Edit Profile</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin Profile Modal -->
+    <div
+      class="modal fade"
+      id="adminProfileModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Admin Profile</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="d-flex align-items-center mb-3">
+              <div
+                class="rounded-circle d-flex align-items-center justify-content-center me-3"
+                style="
+                  width: 56px;
+                  height: 56px;
+                  background-color: #0d6efd;
+                  color: white;
+                  font-weight: 600;
+                "
+              >
+                JC
+              </div>
+              <div>
+                <h6 class="mb-1">Jack Chain</h6>
+                <small class="text-muted">Super Admin</small>
+              </div>
+            </div>
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item px-0">
+                <strong>User ID:</strong> ADM-1001
+              </li>
+              <li class="list-group-item px-0">
+                <strong>Email:</strong> jack.chain@example.com
+              </li>
+              <li class="list-group-item px-0">
+                <strong>Phone:</strong> +1 (555) 123 45 67
+              </li>
+              <li class="list-group-item px-0">
+                <strong>Role:</strong> Super Admin
+              </li>
+              <li class="list-group-item px-0">
+                <strong>Last Login:</strong> 12 Dec 2025, 14:32
+              </li>
+            </ul>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-outline-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+            <button class="btn btn-primary">Edit Profile</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin Settings Modal -->
+    <div
+      class="modal fade"
+      id="adminSettingsModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Settings</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <p class="text-muted mb-3">
+              Manage your account preferences and security options.
+            </p>
+
+            <div class="mb-3">
+              <label class="form-label">Language</label>
+              <select class="form-select">
+                <option selected>English</option>
+                <option>Türkçe</option>
+                <option>Deutsch</option>
+              </select>
+            </div>
+
+            <div class="form-check form-switch mb-2">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="emailNotif"
+                checked
+              />
+              <label class="form-check-label" for="emailNotif">
+                Email notifications
+              </label>
+            </div>
+
+            <div class="form-check form-switch mb-2">
+              <input class="form-check-input" type="checkbox" id="darkMode" />
+              <label class="form-check-label" for="darkMode"> Dark mode </label>
+            </div>
+
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="twoFA" />
+              <label class="form-check-label" for="twoFA">
+                Two-factor authentication
+              </label>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+            <button class="btn btn-primary">Save Changes</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Bootstrap JavaScript Bundle -->
